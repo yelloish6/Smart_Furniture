@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92a2c203-86df-4c4d-8825-246b471586cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/export" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/export.scad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/.idea/Smart_Furniture.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/architectures/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/architectures/kitchen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/build_corpuri_oo_refactored.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/accesoriu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/comanda.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/corp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/export_stl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/placa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/elements/price_list.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Bucatarie Tibi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Bucatarie_Marius.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Bucatarie_Mirona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Bucatarie_Nica.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/3D Test.stl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/Comanda_Proficut_Test.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/PannelsCuttingList_pal_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/PannelsCuttingList_pfl_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/comanda_accesorii_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/comanda_front_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/comanda_pal_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/Comanda Test/comanda_pfl_Test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/bucatarie_Eligia_refactored.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/bucatarie_alexandra.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/bucatarie_irina_francu_refactored.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/bucatarie_sus_carmen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/bucatarie_sus_carmen_refactored.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/dressing_Eligia.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/dressing_Sabin_Bindiu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/projects/test_smart_furniture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject/templates/Cote-Proficut-2018.xlsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JUaKgwUY4E7LdCif6Ib1DDjUIr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="SolidPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.10" />
+      <option name="SDK_NAME" value="Python 3.10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92a2c203-86df-4c4d-8825-246b471586cd" name="Changes" comment="" />
+      <created>1672135052422</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672135052422</updated>
+    </task>
+    <servers />
+  </component>
+</project>
