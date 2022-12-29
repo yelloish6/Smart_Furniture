@@ -757,6 +757,90 @@ facet normal 0.0 0.0 0.0
 endfacet
 facet normal 0.0 0.0 0.0
   outer loop
+    vertex 900.0 550.0 482.0
+    vertex 0.0 0.0 482.0
+    vertex 0.0 550.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 0.0 482.0
+    vertex 900.0 550.0 482.0
+    vertex 900.0 0.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 900.0 0.0 500.0
+    vertex 0.0 550.0 500.0
+    vertex 0.0 0.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 550.0 500.0
+    vertex 900.0 0.0 500.0
+    vertex 900.0 550.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 900.0 0.0 500.0
+    vertex 0.0 0.0 482.0
+    vertex 900.0 0.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 0.0 482.0
+    vertex 900.0 0.0 500.0
+    vertex 0.0 0.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 550.0 500.0
+    vertex 0.0 0.0 482.0
+    vertex 0.0 0.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 0.0 482.0
+    vertex 0.0 550.0 500.0
+    vertex 0.0 550.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 0.0 550.0 500.0
+    vertex 900.0 550.0 482.0
+    vertex 0.0 550.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 900.0 550.0 482.0
+    vertex 0.0 550.0 500.0
+    vertex 900.0 550.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 900.0 550.0 482.0
+    vertex 900.0 0.0 500.0
+    vertex 900.0 0.0 482.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
+    vertex 900.0 0.0 500.0
+    vertex 900.0 550.0 482.0
+    vertex 900.0 550.0 500.0
+  endloop
+endfacet
+facet normal 0.0 0.0 0.0
+  outer loop
     vertex 898.0 551.0 2.0
     vertex 2.0 555.0 2.0
     vertex 2.0 551.0 2.0

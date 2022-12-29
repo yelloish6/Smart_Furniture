@@ -82,4 +82,8 @@ class Banca(corp):
         plinta3.move("x", gap_lat - 2 * self.thick_pal)
         self.append(plinta3)
 
+        blat = PlacaPal(self.label + ".blat", width, depth, self.thick_pal, "2", "2", "2", "2")
+        blat.move("z", height - self.thick_pal)
+        self.append(blat)
+
         self.add_pfl()

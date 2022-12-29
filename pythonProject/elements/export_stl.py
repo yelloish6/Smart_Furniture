@@ -166,18 +166,18 @@ def export_stl(file_name, label, x, y, z, ox, oy, oz):
     file_name = file_name + ".stl"
 
     if not os.path.exists(file_name):
-        print("Create file and add the 'solid' line")
+        # print("Create file and add the 'solid' line")
         create_new_file(file_name)
-        print("Write the board to write")
+        # print("Write the board to write")
         write_board(file_name, label, x, y, z, ox, oy, oz)
-        print("write the end solid")
+        # print("write the end solid")
 
     else:
-        print("delete last row from file")
+        # print("delete last row from file")
         delete_last_row(file_name)
-        print("Write the board to write")
+        # print("Write the board to write")
         write_board(file_name, label, x, y, z, ox, oy, oz)
-        print("write the end solid")
+        # print("write the end solid")
 
 
 def create_new_file(file_name):
@@ -191,7 +191,7 @@ def delete_last_row(file_name):
     with open(file_name, mode='r') as stl_file:
         data = stl_file.readlines()
         data[len(data)-1] = ""
-        print(data)
+        # print(data)
     stl_file.close()
 
     with open(file_name, mode='w') as stl_file:
