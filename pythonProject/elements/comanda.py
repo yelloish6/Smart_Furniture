@@ -313,10 +313,11 @@ class Comanda:
         m2_pal = self.get_m2_pal() * (1 + PAL_LOSS)
         min = float(self.get_min_qty_for_item("pal", self.req["material_pal"])) * (2800 * 2070 / 1000000)
         sheets = math.ceil(m2_pal / (2800 * 2070 / 1000000))
-        if m2_pal < min:
-            return min
-        else:
-            return sheets
+        return sheets
+        # if m2_pal < min:
+        #     return min
+        # else:
+        #     return sheets
 
     def get_cost_pal(self):
         pal_price = float(self.get_price_for_item("pal", self.mat_pal))

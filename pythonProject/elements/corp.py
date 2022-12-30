@@ -230,13 +230,13 @@ class corp:
         sep_l = height
         sep_w = self.depth
         sep = PlacaPal(self.label + ".sep" + ".v", sep_l, sep_w, self.thick_pal, sep_cant, "", "", "")
-        self.addPalObject(sep)
+        self.append(sep)
         self.sep_space_w = round((self.sep_space_w - self.thick_pal) / 2)
 
         sep.rotate("y")
         sep.move("x", self.thick_pal + offset_x)
         sep.move("z", self.thick_pal + offset_z)
-        self.addAcces("surub", 4)
+        self.append(accesoriu("surub", 4))
 
     def add_sep_h(self, width, offset_x, offset_z, sep_cant):
         sep_l = width
@@ -249,16 +249,28 @@ class corp:
         sep.move("z", self.thick_pal + offset_z)
         self.append(accesoriu("surub", 4))
 
+    def add_front_lateral_2(self, left_right):
+        front = Front(self.label + ".fr_lat", self.height, self.depth, self.thick_front)
+        if left_right == "left":
+            front.rotate("y")
+        elif left_right == "right":
+            front.rotate("y")
+            front.move("x", self.width)
+        self.append(front)
+
     def add_front_lateral(self):
         self.front = self.front + [["front", self.label + ".lat", self.height, self.depth]]
 
-    def add_front_manual(self, height, width):
+    def add_front_manual(self, height, width, offset_x, offset_z):
         fr = Front(self.label + ".man", height, width, self.thick_front)
         fr.rotate("x")
         fr.rotate("y")
+        fr.move("x", fr.width)
         fr.move("x", self.front_gap)
         fr.move("z", self.front_gap)
-        fr.move("y", -self.thick_front)
+        fr.move("x", offset_x)
+        fr.move("z", offset_z)
+        # fr.move("y", - self.thick_front)
         self.append(fr)
 
     def add_tandem_box(self, tip):

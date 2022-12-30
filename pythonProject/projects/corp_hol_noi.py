@@ -1,3 +1,4 @@
+
 from elements.comanda import *
 from architectures.kitchen import *
 from architectures.dressing import *
@@ -44,7 +45,7 @@ req = {
     "nr_electrocasnice": 6
 }
 
-mobila = Comanda("Test", 100, req)
+mobila = Comanda("Noi", req["discount"], req)
 
 base_height = req["blat_height"] - rules["height_legs"] - rules["thick_blat"]
 base_width = 600
@@ -115,33 +116,31 @@ tower_depth = req["depth_base"] - rules["gap_fata"]
 # ms5.add_front([[100,100]], "door")
 # mobila.append(ms5)
 
-# banca1 = Banca("banca", 518, 800, 500, rules)
-# mobila.append(banca1)
+banca1 = Banca("banca", 518, 800, 500, rules)
+mobila.append(banca1)
 
-# et1 = Etajera("etajera1", 1000, 540, 340, 5, rules)
-# et1.add_sep_v(1000 - 2 * et1.thick_pal, 540/2, 0, et1.cant)
-# # et1.add_front([[100, 100]], "door")
-# # et1.move("z", banca1.height + 1)
-# # et1.move("x", - et1.width)
-# # et1.move("y", 100)
-# mobila.append(et1)
+et1 = Etajera("etajera1", 1554, 404, 400, 7, rules)
+et1.add_front([[100, 100]], "door")
+et1.move("z", banca1.height + 1)
+et1.move("x", - et1.width)
+et1.move("y", 100)
+mobila.append(et1)
 
+et2 = Etajera("etajera2", 1500, 482, 400, 3, rules)
+et2.rotate("y")
+et2.move("z", banca1.height + et1.height + 1)
+et2.move("x", - et1.width)
+et2.move("y", 100)
+mobila.append(et2)
 
 c_baie = TopBox("baie", 500, 482, 395, rules)
 # c_baie.add_tandem_box("D")
 # c_baie.add_tandem_box("D")
+c_baie.add_front_lateral_2("left")
 c_baie.add_pol(1, rules["cant_pol"])
-c_baie.add_front_lateral()
-c_baie.add_front([[100, 50],[100, 50]], "drawer")
+c_baie.add_front([[100, 51.8],[100, 51.8]], "drawer")
 c_baie.remove_all_pfl()
 mobila.append(c_baie)
-
-# et2 = Etajera("etajera2", 1500, 482, 400, 3, rules)
-# et2.rotate("y")
-# et2.move("z", banca1.height + et1.height + 1)
-# et2.move("x", - et1.width)
-# et2.move("y", 100)
-# mobila.append(et2)
 
 mobila.print_status()
 mobila.export_csv()

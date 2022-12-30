@@ -753,13 +753,14 @@ class TowerBox(corp):
                         self.cant_lab, "", self.cant_lab, "")
         lat1.rotate("y")
         lat1.move("z", jos.thick)
+        lat1.move("x", self.thick_pal)
         self.append(lat1)
 
         lat2 = PlacaPal(self.label + ".lat", self.height - self.thick_pal, self.depth + gap_heat, self.thick_pal,
                         self.cant_lab, "", self.cant_lab, "")
         lat2.rotate("y")
         lat2.move("z", jos.thick)
-        lat2.move("x", jos.length - lat2.thick)
+        lat2.move("x", jos.length)
         self.append(lat2)
 
         sus = PlacaPal(self.label + ".sus", self.width - (2 * self.thick_pal), self.depth - (self.cant),
@@ -771,7 +772,7 @@ class TowerBox(corp):
         #adding horizontal separators
         offset = 0
         for gap in range(len(gap_list)):
-            offset += gap_list[gap] + self.thick_pal
+            offset += gap_list[gap] # + self.thick_pal
             self.add_sep_h(self.width - 2 * self.thick_pal, 0, offset, self.cant_lab)
         # self.addSepH(self.width - 2 * self.thick_pal, 0, gap_list[0], self.cant_lab)
         # self.addSepH(self.width - 2 * self.thick_pal, 0, gap_list[0] + gap_list[1] + self.thick_pal, self.cant_lab)
@@ -787,37 +788,48 @@ class TowerBox(corp):
 
         self.add_pfl()
 
+        # if front_list[0] == 1:
+        #     if front_list[1] == 0:
+        #         self.add_front_manual(gap_list[0] + (2 * self.thick_pal) - 4, self.width - 4, 0, 0)
+        #         if front_list[2] == 0:
+        #
+        #         elif front_list[2] == 1:
+        #     elif front_list[1] == 1:
+        #         self.add_front_manual(gap_list[0] + (1.5 * self.thick_pal) - 3, self.width - 4, 0, 0)
+
         # Se seteaza fronturile pentru turn
         # gap_list[0]
         if (front_list[0] == 1) and (front_list[1] == 0):
-            self.add_front_manual(gap_list[0] + (2 * self.thick_pal) - 4, self.width - 4)
+            # front jos fara ala de sus
+            self.add_front_manual(gap_list[0] + (2 * self.thick_pal) - 4, self.width - 4, 0, 0)
         if (front_list[0] == 1) and (front_list[1] == 1):
-            self.add_front_manual(gap_list[0] + (1.5 * self.thick_pal) - 3, self.width - 4)
+            # front jos si ala de sus
+            self.add_front_manual(gap_list[0] + (1.5 * self.thick_pal) - 3, self.width - 4, 0, 0)
         # gap_list[1]
         if (front_list[1] == 1) and (front_list[0] == 0) and (front_list[2] == 0):
-            self.add_front_manual(gap_list[1] + (2 * self.thick_pal) - 4, self.width - 4)
+            self.add_front_manual(gap_list[1] + (2 * self.thick_pal) - 4, self.width - 4, 0, gap_list[0])
         if (((front_list[1] == 1) and (front_list[0] == 1) and (front_list[2] == 0))
                 or ((front_list[1] == 1) and (front_list[0] == 0) and (front_list[2] == 1))):
-            self.add_front_manual(gap_list[1] + (1.5 * self.thick_pal) - 3, self.width - 4)
+            self.add_front_manual(gap_list[1] + (1.5 * self.thick_pal) - 3, self.width - 4, 0, gap_list[0] + (self.thick_pal / 2))
         if (front_list[1] == 1) and (front_list[0] == 1) and (front_list[2] == 1):
-            self.add_front_manual(gap_list[1] + self.thick_pal - 4, self.width - 4)
+            self.add_front_manual(gap_list[1] + self.thick_pal - 4, self.width - 4, 0, gap_list[0] + (self.thick_pal / 2))
 
         # gap_list[2]
         if (front_list[2] == 1) and (front_list[1] == 0) and (front_list[3] == 0):
-            self.add_front_manual(gap_list[2] + (2 * self.thick_pal) - 4, self.width - 4)
+            self.add_front_manual(gap_list[2] + (2 * self.thick_pal) - 4, self.width - 4, 0, gap_list[0] + gap_list[1] + 2)
         if (((front_list[2] == 1) and (front_list[1] == 1) and (front_list[3] == 0))
                 or ((front_list[2] == 1) and (front_list[1] == 0) and (front_list[3] == 1))):
-            self.add_front_manual(gap_list[2] + (1.5 * self.thick_pal) - 3, self.width - 4)
+            self.add_front_manual(gap_list[2] + (1.5 * self.thick_pal) - 3, self.width - 4, 0, gap_list[0] + gap_list[1] + 2)
         if (front_list[2] == 1) and (front_list[1] == 1) and (front_list[3] == 1):
-            self.add_front_manual(gap_list[2] + self.thick_pal - 4, self.width - 4)
+            self.add_front_manual(gap_list[2] + self.thick_pal - 4, self.width - 4, 0, gap_list[0] + gap_list[1] + 2)
 
         # gap4
         if (front_list[3] == 1) and (front_list[2] == 0):
             self.add_front_manual(self.height - gap_list[0] - gap_list[1] - gap_list[2] - (3 * self.thick_pal) - 4,
-                                  self.width - 4)
+                                  self.width - 4, 0, gap_list[0] + gap_list[1] + gap_list[2] + 4)
         if (front_list[3] == 1) and (front_list[2] == 1):
             self.add_front_manual(self.height - gap_list[0] - gap_list[1] - gap_list[2] - (3.5 * self.thick_pal) - 3,
-                                  self.width - 4)
+                                  self.width - 4, 0, gap_list[0] + gap_list[1] + gap_list[2] + 4)
 
 
 class MsVBox(corp):
