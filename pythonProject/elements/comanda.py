@@ -6,7 +6,12 @@ import shutil
 
 PAL_LOSS = 0.1  # used to calculate number of sheets needed
 
+# TODO de tratat blatul ca material separat. In proiectul din sketchUP se proiecteaza corpul din pal cu dimensiunile
+#  finale ale corpului si blat-ul separat
+#   -se creaza cate o placa in fisierul de coamnda pentru fiecare placa de blat
+#   -metoda pentru imbinare si pentru desenat blatul in toata comanda
 
+# TODO review pe calculul de manopera
 class Comanda:
     def __init__(self, client, discount, req):
 
@@ -115,13 +120,12 @@ class Comanda:
             os.mkdir(folder_name)
         return folder_name
 
-
     def export_pal_for_proficut(self):
-        #self.create_folder()
         folder_name = self.create_folder()
-        shutil.copyfile("templates/Cote-Proficut-2018.xlsx", folder_name + "/Comanda_Proficut_"+self.client+".xlsx")
+        shutil.copyfile("templates/Cote-Proficut-2018.xlsx", folder_name + "/Comanda_" + self.req["material_pal"] + "_"
+                        + self.client+".xlsx")
 
-        file = openpyxl.load_workbook(folder_name + "/Comanda_Proficut_"+self.client+".xlsx")
+        file = openpyxl.load_workbook(folder_name + "/Comanda_" + self.req["material_pal"] + "_" + self.client+".xlsx")
         sheet = file.get_sheet_by_name("Sheet1")
 
         sheet['C1'] = self.req["Client Proficut"]
@@ -145,7 +149,69 @@ class Comanda:
                     sheet['H' + str(10 + counter)] = element.cant_list[2]
                     sheet['I' + str(10 + counter)] = element.cant_list[3]
                     counter += 1
-        file.save(folder_name + "/Comanda_Proficut_"+self.client+".xlsx")
+        file.save(folder_name + "/Comanda_" + self.req["material_pal"] + "_" + self.client+".xlsx")
+
+    def export_pfl_for_proficut(self):
+        #self.create_folder()
+        folder_name = self.create_folder()
+        shutil.copyfile("templates/Cote-Proficut-2018.xlsx", folder_name + "/Comanda_" + self.req["material_pfl"] + "_"
+                        + self.client+".xlsx")
+
+        file = openpyxl.load_workbook(folder_name + "/Comanda_" + self.req["material_pfl"] + "_" + self.client+".xlsx")
+        sheet = file.get_sheet_by_name("Sheet1")
+
+        sheet['C1'] = self.req["Client Proficut"]
+        sheet['D2'] = self.req["Tel Proficut"]
+        sheet['D3'] = self.req["Transport"]
+        sheet['C4'] = self.req["Adresa"]
+        sheet['G4'] = self.req["material_pfl"]
+
+
+        counter = 0
+        for corp in self.corpuri:
+            for element in corp.material_list:
+                if element.type == "pfl":
+                    sheet['A' + str(10 + counter)] = "1"
+                    sheet['B' + str(10 + counter)] = element.length
+                    sheet['C' + str(10 + counter)] = element.width
+                    sheet['D' + str(10 + counter)] = 0
+                    sheet['E' + str(10 + counter)] = element.label
+                    # sheet['F' + str(10 + counter)] = element.cant_list[0]
+                    # sheet['G' + str(10 + counter)] = element.cant_list[1]
+                    # sheet['H' + str(10 + counter)] = element.cant_list[2]
+                    # sheet['I' + str(10 + counter)] = element.cant_list[3]
+                    counter += 1
+        file.save(folder_name + "/Comanda_" + self.req["material_pfl"] + "_" + self.client+".xlsx")
+
+    def export_front_for_nettfront(self):
+        #self.create_folder()
+        folder_name = self.create_folder()
+        mat_front_format = str(self.req["material_front"]).replace("/", "")  # remove the "/" character from string
+        # because it will create a new folder
+        shutil.copyfile("templates/Formular_de_comanda_nett_front.xlsx", folder_name + "/Comanda_front_" +
+                        mat_front_format + "_" + self.client+".xlsx")
+        file = openpyxl.load_workbook(folder_name + "/Comanda_front_" + mat_front_format + "_" + self.client + ".xlsx")
+
+        sheet = file.get_sheet_by_name("Sheet1")
+
+        # sheet['C1'] = self.req["Client Proficut"]
+        # sheet['D2'] = self.req["Tel Proficut"]
+        # sheet['D3'] = self.req["Transport"]
+        # sheet['C4'] = self.req["Adresa"]
+        sheet['C17'] = self.req["material_front"]
+
+        counter = 0
+        for corp in self.corpuri:
+            for element in corp.material_list:
+                if element.type == "front":
+                    #sheet['A' + str(21 + counter)] = counter + 1
+                    sheet['B' + str(21 + counter)] = element.length
+                    sheet['C' + str(21 + counter)] = element.width
+                    sheet['D' + str(21 + counter)] = 1
+                    sheet['F' + str(21 + counter)] = element.label
+                    #sheet.insert_rows(21 + counter, 1)
+                    counter += 1
+        file.save(folder_name + "/Comanda_front_" + mat_front_format + "_" + self.client+".xlsx")
 
     def export_csv(self):
         # create folder with customer name if it doesn't exist
@@ -338,6 +404,7 @@ class Comanda:
                     self.cost_acc += acc_price * self.corpuri[i].material_list[j].pieces
 
         print("*** INFORMATII GENERALE ***")
+        print("Nume client: ", self.req["client"])
         print("Numar de corpuri: ", len(self.corpuri))
         print("Lungime totala mobila: ", self.length / 1000, " m")
         print("M2 PAL: ", "{:.2f}".format(self.get_m2_pal()),

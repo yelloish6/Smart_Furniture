@@ -4,5 +4,6 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 import projects.bucatarie_Alex
+#import projects.corp_hol_noi
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
