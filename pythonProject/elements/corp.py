@@ -205,13 +205,14 @@ class corp:
             self.addAcces("surub", 4)
 
     def add_wine_shelf(self, goluri, left_right, cant):
+        # height of the
         offset_z = round((self.height - ((goluri + 1) * self.thick_pal)) / goluri)
         if left_right == "left":
-            self.add_sep_v(self.height - (2 * self.thick_pal), offset_z, 0, cant)
+            self.add_sep_v(self.height - (2 * self.thick_pal), offset_z + self.thick_pal, 0, cant)
             for x in range(goluri - 1):
                 self.add_sep_h(offset_z, 0, (offset_z * (x + 1)) + (self.thick_pal * (x)), cant)
         if left_right == "right":
-            self.add_sep_v(self.height - (2 * self.thick_pal), self.width - offset_z - (3 * self.thick_pal), 0, cant)
+            self.add_sep_v(self.height - (2 * self.thick_pal), self.width - offset_z - (2 * self.thick_pal), 0, cant)
             for x in range(goluri - 1):
                 self.add_sep_h(offset_z, self.width - offset_z - (2 * self.thick_pal),
                                (offset_z * (x + 1)) + (self.thick_pal * x), cant)

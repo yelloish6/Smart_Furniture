@@ -4,6 +4,7 @@ import csv
 class accesoriu:
     def __init__(self, name, pieces):
         self.name = name
+        self.label = name
         self.pieces = pieces
         self.type = "accesoriu"
         with open('elements/price_list.csv') as price_list_file:

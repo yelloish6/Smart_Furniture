@@ -1,4 +1,4 @@
-solid projects/Comanda Test/3D Test.stl
+solid projects/Comanda Noi/3D Noi.stl
 facet normal 0.0 0.0 0.0
   outer loop
     vertex 0.0 500.0 0.0
@@ -3359,4 +3359,4 @@ facet normal 0.0 0.0 0.0
     vertex 1938.0 -18.0 498.0
   endloop
 endfacet
-endsolid projects/Comanda Test/3D Test.stl
+endsolid projects/Comanda Noi/3D Noi.stl

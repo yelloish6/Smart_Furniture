@@ -12,6 +12,9 @@ PAL_LOSS = 0.1  # used to calculate number of sheets needed
 #   -metoda pentru imbinare si pentru desenat blatul in toata comanda
 
 # TODO review pe calculul de manopera
+
+# TODO Comanda e defapt proiect, si comanda e o comasare de mai multe proiecte, sa le am comasate pentru cand chiar
+#  trimit o comanda. Asa pot de exemplu sa compar cost estimat si cost real la fiecare comanda.
 class Comanda:
     def __init__(self, client, discount, req):
 

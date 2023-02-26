@@ -36,12 +36,15 @@ req = {
     "MsV_height_min": 815,
     "MsV_height_max": 875,
     "material_pal": "W962ST2",
-    "material_front": "A34/R3",  #frezare si culoare
+    "material_front": "A34/R3 Satin Alb Mat",  #frezare si culoare
     "material_blat": "Stejar Alpin Keindl",
     "material_pfl": "PFL Alb",
     "h_rate": 120,
     "discount": 100,
     "nr_electrocasnice": 2  # plita, cuptor, chiuveta, microunde, frigider, hota
+    # https://www.vidaxl.ro/e/vidaxl-chiuveta-de-bucatarie-lucrata-manual-negru-otel-inoxidabil/8720286179079.html
+    # https://www.emag.ro/plita-incorporabila-mpm-45-gmh-16-gaz-3-zone-de-gatit-45-cm-negru-6354274/pd/D4Q7X2MBM/?X-Search-Id=46a48a7bc7da1880df57&X-Product-Id=63513001&X-Search-Page=1&X-Search-Position=8&X-Section=search&X-MB=0&X-Search-Action=view
+    # https://www.dedeman.ro/timisoara2/baterie-bucatarie-ferro-fitness-bfs4b-stativa-monocomanda-alama-finisaj-cromat/-negru/p/3031462
 }
 
 mobila = Comanda("Alex Trifan", req["discount"], req)
@@ -67,19 +70,42 @@ t1.add_front([[40, 100], [60, 100]], "door")
 t1.add_pol(4, rules["cant_pol"])
 
 t1.move("x", 100)
-mobila.append(t1)
+# mobila.append(t1)
 
-j2 = BaseCorner("j2", base_height, 950, 953, rules, 450, 503, "right", False)
-j2.rotate("z")
-j2.rotate("z")
-j2.rotate("z")
-j2.move("x", j2.width)
+#j2 = BaseCorner("j2", base_height, 950, 943, rules, 450, 503, "right", False)
+j2 = BaseCorner("j2", base_height, 943, 950, rules, 503, 450, "left", False)
 
-pol = PlacaPal(j2.label + "pol", j2.width - j2.thick_pal, j2.depth - 470, rules["thick_pal"], rules["cant_pol"], "",
-               "", "")
-pol.move("y", 470)
+# adaugam polita manual sa vina pe cealalta parte, daca il facem cu left vine spatele spre chiuveta
+pol = PlacaPal(j2.label + "pol", j2.width - (2 * j2.thick_pal), j2.depth - 470 - j2.thick_pal, rules["thick_pal"],
+               rules["cant_pol"], "", "", "")
+pol.move("x", j2.thick_pal)
+pol.move("y", 470 + j2.thick_pal)
 pol.move("z", j2.height / 2)
 j2.append(pol)
+
+j2.remove_material("pal", "j2.spate")
+# # spate 1 440 694
+# sp1 = PlacaPal(j2.label + ".sp1", j2.height - j2.thick_pal, 440, j2.thick_pal, "", "", "", "")
+# sp1.rotate("y")
+# sp1.rotate("z")
+# sp1.move("z", j2.thick_pal)
+# # sp1.move("x", 950)
+# # sp1.move("y", 503)
+# j2.append(sp1)
+# # spate 2 712 475
+sp2 = PlacaPal(j2.label + ".sp2", j2.height - j2.thick_pal, 500, j2.thick_pal, "1", "", "", "")
+sp2.rotate("y")
+sp2.move("z", j2.thick_pal)
+sp2.move("x", j2.thick_pal)
+sp2.move("y", 450)
+j2.append(sp2)
+
+j2.remove_all_pfl()
+# j2.rotate("z")
+# j2.rotate("z")
+# j2.rotate("z")
+j2.move("x", 10)
+
 
 blat1 = Blat("blat1", 1000, 550, rules["thick_blat"])
 blat1.rotate("z")

@@ -36,9 +36,9 @@ req = {
     "MsV_height_min": 815,
     "MsV_height_max": 875,
     "material_pal": "W962ST2",
-    "material_front": "A34/R3",
+    "material_front": "A34/R3 Satin Alb Mat",
     "material_blat": "Stejar Alpin Keindl",
-    "material_pfl": "Alb",
+    "material_pfl": "PFL Alb",
     "h_rate": 120,
     "discount": 100,
     "nr_electrocasnice": 6
@@ -103,3 +103,4 @@ mobila.print_status()
 mobila.export_csv()
 mobila.draw(0, 0, 0)
 mobila.export_pal_for_proficut()
+mobila.export_front_for_nettfront()

@@ -60,7 +60,6 @@ class BaseBox(corp):
 
         self.add_pfl()
 
-
 class BaseCorner(corp):
     def __init__(self, label, height, width, depth, rules, cut_width, cut_depth, l_r, with_polita):
         """
